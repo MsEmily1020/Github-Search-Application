@@ -7,6 +7,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -21,6 +24,8 @@ class MainActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+        val githubService = retrofit.create(GithubService::class.java)
+
         val loadingText = findViewById<TextView>(R.id.loading_text)
         val searchText = findViewById<EditText>(R.id.search_text)
         val searchBtn = findViewById<Button>(R.id.search_btn)
@@ -29,6 +34,20 @@ class MainActivity : AppCompatActivity() {
             loadingText.visibility = View.VISIBLE
 
             val username = searchText.text.trim().toString().replace(" ", "")
+
+            val call = githubService.getUser(username)
+
+            call.enqueue(object : Callback<GithubUser> {
+                override fun onResponse(call: Call<GithubUser>, response: Response<GithubUser>) {
+                    TODO("Not yet implemented")
+                    loadingText.visibility = View.GONE
+                }
+
+                override fun onFailure(call: Call<GithubUser>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
         }
     }
 }
