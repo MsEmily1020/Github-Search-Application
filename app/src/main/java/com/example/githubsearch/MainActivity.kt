@@ -2,6 +2,7 @@ package com.example.githubsearch
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -39,12 +40,15 @@ class MainActivity : AppCompatActivity() {
 
             call.enqueue(object : Callback<GithubUser> {
                 override fun onResponse(call: Call<GithubUser>, response: Response<GithubUser>) {
-                    TODO("Not yet implemented")
+                    val user = response.body() as GithubUser
+
+                    user?.let {
+                        Log.d("mytag", user.toString())
+                    }
                     loadingText.visibility = View.GONE
                 }
 
                 override fun onFailure(call: Call<GithubUser>, t: Throwable) {
-                    TODO("Not yet implemented")
                 }
 
             })
