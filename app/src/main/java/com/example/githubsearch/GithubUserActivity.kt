@@ -1,7 +1,10 @@
 package com.example.githubsearch
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 
 class GithubUserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,5 +20,23 @@ class GithubUserActivity : AppCompatActivity() {
         val userCompany = intent.getStringExtra("user_company")
         val userCreatedAt = intent.getStringExtra("user_created_at")
 
+        val userLoginTextView = findViewById<TextView>(R.id.user_login)
+        val userAvatarUrlImageView = findViewById<ImageView>(R.id.user_profile)
+        val userNameTextView = findViewById<TextView>(R.id.user_name)
+        val userPublicReposTextView = findViewById<TextView>(R.id.user_public_repos)
+        val userFollowersFollowingTextView = findViewById<TextView>(R.id.user_followers_following)
+        val userCompanyTextView = findViewById<TextView>(R.id.user_company)
+        val userCreatedAtTextView = findViewById<TextView>(R.id.user_created_at)
+
+        userLoginTextView.text = userLogin
+        userNameTextView.text = userName
+        userPublicReposTextView.text = userPublicRepos
+        userFollowersFollowingTextView.text = "$userFollowers $userFollowing"
+        userCompanyTextView.text = userCompany
+        userCreatedAtTextView.text = userCreatedAt
+
+        Glide.with(this)
+            .load(userAvatarUrl)
+            .into(userAvatarUrlImageView)
     }
 }
