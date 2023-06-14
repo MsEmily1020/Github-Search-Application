@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             loadingText.visibility = View.VISIBLE
 
             val username = searchText.text.trim().toString().replace(" ", "")
+            searchText.setText(username)
 
             val call = githubService.getUser(username)
 
