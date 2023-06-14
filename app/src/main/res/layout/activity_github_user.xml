@@ -17,20 +17,25 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/user_login"
+                android:fontFamily="@font/gabia_font"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/user_name"
+                android:fontFamily="@font/gabia_font"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/user_created_at"
+                android:fontFamily="@font/gabia_font"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -39,16 +44,19 @@
 
     <TextView
         android:id="@+id/user_public_repos"
+        android:fontFamily="@font/gabia_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/user_followers_following"
+        android:fontFamily="@font/gabia_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/user_company"
+        android:fontFamily="@font/gabia_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

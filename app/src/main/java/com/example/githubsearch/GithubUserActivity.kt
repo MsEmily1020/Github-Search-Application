@@ -18,7 +18,7 @@ class GithubUserActivity : AppCompatActivity() {
         val userFollowers = intent.getStringExtra("user_followers")
         val userFollowing = intent.getStringExtra("user_following")
         val userCompany = intent.getStringExtra("user_company")
-        val userCreatedAt = intent.getStringExtra("user_created_at")
+        val userCreatedAt = intent.getStringExtra("user_created_at")?.replace("T00:.*".toRegex(), "")
 
         val userLoginTextView = findViewById<TextView>(R.id.user_login)
         val userAvatarUrlImageView = findViewById<ImageView>(R.id.user_profile)
