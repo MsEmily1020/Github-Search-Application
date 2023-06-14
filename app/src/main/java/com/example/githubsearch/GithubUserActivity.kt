@@ -10,6 +10,7 @@ class GithubUserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_github_user)
+        supportActionBar?.hide()
 
         val userLogin = intent.getStringExtra("user_login")
         val userAvatarUrl = intent.getStringExtra("user_avatar_url")
@@ -18,7 +19,7 @@ class GithubUserActivity : AppCompatActivity() {
         val userFollowers = intent.getStringExtra("user_followers")
         val userFollowing = intent.getStringExtra("user_following")
         val userCompany = intent.getStringExtra("user_company")
-        val userCreatedAt = intent.getStringExtra("user_created_at")?.replace("T00:.*".toRegex(), "")
+        val userCreatedAt = intent.getStringExtra("user_created_at")?.replace("T.*".toRegex(), "")
 
         val userLoginTextView = findViewById<TextView>(R.id.user_login)
         val userAvatarUrlImageView = findViewById<ImageView>(R.id.user_profile)
@@ -30,8 +31,8 @@ class GithubUserActivity : AppCompatActivity() {
 
         userLoginTextView.text = userLogin
         userNameTextView.text = userName
-        userPublicReposTextView.text = userPublicRepos
-        userFollowersFollowingTextView.text = "$userFollowers $userFollowing"
+        userPublicReposTextView.text = "공개 레파지토리 갯수 : $userPublicRepos"
+        userFollowersFollowingTextView.text = "팔로워 : $userFollowers, 팔로잉 : $userFollowing"
         userCompanyTextView.text = userCompany
         userCreatedAtTextView.text = userCreatedAt
 

@@ -1,62 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E6000000"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/github_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="4dp"
+                android:text="GITHUB"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
 
         <ImageView
             android:id="@+id/user_profile"
-            android:layout_width="200dp"
-            android:layout_height="200dp" />
+            android:layout_width="400dp"
+            android:layout_height="400dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="30dp"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/user_login"
-                android:fontFamily="@font/gabia_font"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gabia_font"
+                android:paddingTop="30dp"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/user_name"
-                android:fontFamily="@font/gabia_font"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gabia_font"
+                android:paddingTop="30dp"
+                android:paddingLeft="50dp"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/user_created_at"
-                android:fontFamily="@font/gabia_font"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gabia_font"
+                android:paddingTop="30dp"
+                android:paddingLeft="50dp"
+                android:textColor="@color/white" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/user_public_repos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gabia_font"
+            android:paddingTop="30dp"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/user_followers_following"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gabia_font"
+            android:paddingTop="20dp"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/user_company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gabia_font"
+            android:paddingTop="20dp"
+            android:textColor="@color/white" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/user_public_repos"
-        android:fontFamily="@font/gabia_font"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/user_followers_following"
-        android:fontFamily="@font/gabia_font"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/user_company"
-        android:fontFamily="@font/gabia_font"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+</ScrollView>
