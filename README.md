@@ -30,5 +30,5 @@
   
 ## 🎞 깃허브 서치 프로젝트
 
-https://github.com/MsEmily1020/Github-Search-Application/assets/121646949/ffc63ed7-d0ee-4c8e-8779-7edae1072b4d
+https://github.com/MsEmily1020/Github-Search-Application/assets/121646949/573f402c-26b0-4a51-9e0b-b8be2d5ff04c
 
