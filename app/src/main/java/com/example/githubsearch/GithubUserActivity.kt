@@ -52,5 +52,11 @@ class GithubUserActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+        val returnBtn = findViewById<Button>(R.id.return_main_btn)
+
+        returnBtn.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 }
