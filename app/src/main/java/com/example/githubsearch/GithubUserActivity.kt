@@ -1,6 +1,8 @@
 package com.example.githubsearch
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -39,5 +41,14 @@ class GithubUserActivity : AppCompatActivity() {
         Glide.with(this)
             .load(userAvatarUrl)
             .into(userAvatarUrlImageView)
+
+        val repoBtn = findViewById<Button>(R.id.repo_btn)
+
+        repoBtn.setOnClickListener {
+            val intent = Intent(this@GithubUserActivity,
+                GithubUserActivity::class.java)
+
+            intent.putExtra("user_id", userLogin)
+        }
     }
 }
