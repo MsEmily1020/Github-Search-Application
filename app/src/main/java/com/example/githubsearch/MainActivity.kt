@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -44,27 +45,41 @@ class MainActivity : AppCompatActivity() {
                     val user = response.body() as GithubUser
 
                     user?.let {
-                        Log.d("mytag", user.toString())
+                        if (response.code() == 404) {
+                            Toast.makeText(
+                                this@MainActivity,
+                                "사용자 정보를 불러오는데 실패했습니다.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            val intent = Intent(
+                                this@MainActivity,
+                                GithubUserActivity::class.java
+                            )
 
-                        val intent = Intent(this@MainActivity,
-                            GithubUserActivity::class.java)
+                            intent.putExtra("user_login", user.login)
+                            intent.putExtra("user_avatar_url", user.avatar_url)
+                            intent.putExtra("user_name", user.name)
+                            intent.putExtra("user_public_repos", user.public_repos.toString())
+                            intent.putExtra("user_followers", user.followers.toString())
+                            intent.putExtra("user_following", user.following.toString())
+                            intent.putExtra("user_company", user.company)
+                            intent.putExtra("user_created_at", user.created_at)
 
-                        intent.putExtra("user_login", user.login)
-                        intent.putExtra("user_avatar_url", user.avatar_url)
-                        intent.putExtra("user_name", user.name)
-                        intent.putExtra("user_public_repos", user.public_repos.toString())
-                        intent.putExtra("user_followers", user.followers.toString())
-                        intent.putExtra("user_following", user.following.toString())
-                        intent.putExtra("user_company", user.company)
-                        intent.putExtra("user_created_at", user.created_at)
-
-                        startActivity(intent)
+                            startActivity(intent)
+                        }
                     }
 
                     loadingText.visibility = View.GONE
                 }
 
                 override fun onFailure(call: Call<GithubUser>, t: Throwable) {
+                    Toast.makeText(
+                        this@MainActivity,
+                        "사용자 정보를 불러오는데 실패했습니다.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    loadingText.visibility = View.GONE
                 }
 
             })
