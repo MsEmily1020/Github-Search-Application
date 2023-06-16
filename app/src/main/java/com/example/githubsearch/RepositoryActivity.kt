@@ -1,7 +1,10 @@
 package com.example.githubsearch
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import androidx.activity.OnBackPressedCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -30,9 +33,7 @@ class RepositoryActivity : AppCompatActivity() {
 
         val githubService = retrofit.create(GithubService::class.java)
 
-
         val callRepos = githubService.getUserRepos(userId.toString());
-
 
         callRepos.enqueue(object : Callback<List<GitHubRepos>> {
             override fun onResponse(
@@ -48,5 +49,11 @@ class RepositoryActivity : AppCompatActivity() {
             override fun onFailure(call: Call<List<GitHubRepos>>, t: Throwable) {
             }
         })
+
+        val returnBtn = findViewById<Button>(R.id.return_user_btn)
+
+        returnBtn.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 }

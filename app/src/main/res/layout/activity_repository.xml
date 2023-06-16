@@ -14,6 +14,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/return_user_btn"
             android:background="@drawable/background_button"
             android:text="&lt;"
             android:textSize="20dp"
