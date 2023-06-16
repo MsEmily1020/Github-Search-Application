@@ -45,10 +45,12 @@ class GithubUserActivity : AppCompatActivity() {
         val repoBtn = findViewById<Button>(R.id.repo_btn)
 
         repoBtn.setOnClickListener {
-            val intent = Intent(this@GithubUserActivity,
-                GithubUserActivity::class.java)
+            val intent = Intent(this,
+                RepositoryActivity::class.java)
 
             intent.putExtra("user_id", userLogin)
+
+            startActivity(intent)
         }
     }
 }
